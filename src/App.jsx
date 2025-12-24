@@ -21,6 +21,12 @@ const App = () => {
     }
   }, [])
 
+  useEffect(() => {
+    // localStorage.setItem("logged")
+    // console.log("Employee Data changed")
+    console.log(loggedInUserData)
+  }, [loggedInUserData])
+
 
 
   const handleLogin = (email, password) => {
@@ -33,6 +39,7 @@ const App = () => {
     if (adminUser) {
       setUser("admin")
       localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin", data: adminUser }));
+      setLoggedInUserData(adminUser)
       return;
     }
 
@@ -44,7 +51,7 @@ const App = () => {
       setUser("employee");
       setLoggedInUserData(employee)
       localStorage.setItem("loggedInUser", JSON.stringify({ role: "employee", data: employee }));
-      console.log(loggedInUserData)
+      // console.log(loggedInUserData)
       return;;
     }
 
@@ -66,7 +73,7 @@ const App = () => {
 
         {/* {user === "admin" ? <h1>Admin Dashboard <button onClick={logout}>Logout</button> </h1> : (user === "employee" ? <h1>Employee Dashboard <button onClick={logout}>Logout</button> </h1> : "")} */}
 
-        {user === "admin" ? <><AdminDashboard logout={logout} role="admin" changeUser={setUser} data={loggedInUserData} /></> : (user === "employee" ? <><EmployeeDashboard logout={logout} role="employee" changeUser={setUser} data={loggedInUserData} /></> : "NULL")}
+        {user === "admin" ? <><AdminDashboard logout={logout} role="admin" changeUser={setUser} data={loggedInUserData} /></> : (user === "employee" ? <><EmployeeDashboard logout={logout} role="employee" changeUser={setUser} data={loggedInUserData} /></> : "")}
       </div>
 
     </>

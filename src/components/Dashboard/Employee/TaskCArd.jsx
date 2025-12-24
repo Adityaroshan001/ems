@@ -1,13 +1,22 @@
-import React from 'react'
+import { useEffect } from "react";
 
-const TaskCArd = ({ task }) => {
+const TaskCArd = ({ task, onStatusChange }) => {
     const statusColors = {
         pending: "bg-yellow-500/20 text-yellow-400 border-yellow-500/40",
         completed: "bg-green-500/20 text-green-400 border-green-500/40",
         failed: "bg-red-500/20 text-red-400 border-red-500/40",
+        in_review: "bg-purple-500/20 text-purple-400 border-purple-500/40",
     };
 
-    console.log(task)
+
+    const handleSubmit = () => {
+        const ask = confirm("Are you sure that the Task is completed?")
+        if (ask && task.status === "pending") {
+            onStatusChange(task.id, "in_review   ")
+        }
+    }
+
+    // console.log(task)
     return (
         <div className='border p-4 rounded-lg bg-gray-900  border-gray-700 hover:border-gray-600 transition duration-100'>
 
@@ -30,6 +39,8 @@ const TaskCArd = ({ task }) => {
                 <button
                     // onClick={() => onSubmit(task)}
                     className="mt-3 px-3 py-1 bg-blue-600 rounded"
+                    // onClick={() => handleSubmit(task.status)}
+                    onClick={handleSubmit}
                 >
                     Submit Task
                 </button>

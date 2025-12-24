@@ -1,7 +1,8 @@
 
 import TaskCArd from './TaskCArd'
 
-const TaskList = ({ tasks }) => {
+const TaskList = ({ tasks, onStatusChange }) => {
+
     return (
         <div>
             <h3 className='text-lg font-semibold my-3'>My Tasks</h3>
@@ -13,7 +14,11 @@ const TaskList = ({ tasks }) => {
                     {tasks.map(task => (
                         // console.log(task
                         // <div>task</div>
-                        <TaskCArd task={task} />
+                        <TaskCArd
+                         key={task.id}
+                          task={task} 
+                          onStatusChange={onStatusChange}
+                          />
 
                     ))}
 
