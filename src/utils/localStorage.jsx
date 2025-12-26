@@ -191,23 +191,28 @@ export const getLocalStorage = () => {
 };
 
 
-/**
 
-src
-|---components
-    |-------Auth
-            |-------Login.jsx
-    |-------Dashboard
-            |-------AdminDashboard.jsx
-            |-------EmployeeDashboard.jsx
-    |-------others
-            |-------Header.jsx
-|---context
-    |-------AuthContext.jsx
-|---utils
-    |-------localStorage.jsx
-|---App.jsx
- */
+// export const setLocalStorage = (adminData = admin, employeeData = employees) => {
+//     localStorage.setItem("admin", JSON.stringify(adminData));
+//     localStorage.setItem("employees", JSON.stringify(employeeData));
+// };
+
+// export const getLocalStorage = () => {
+//     const employeesData = JSON.parse(localStorage.getItem("employees"));
+//     const adminData = JSON.parse(localStorage.getItem("admin"));
+//     return { employees: employeesData || employees, admin: adminData || admin };
+// };
+
+// // Update both employees and loggedInUser
+// export const updateLocalStorage = (updatedEmployees, loggedInUser = null) => {
+//     const localData = getLocalStorage();
+//     localStorage.setItem("employees", JSON.stringify(updatedEmployees));
+//     localStorage.setItem("admin", JSON.stringify(localData.admin));
+
+//     if (loggedInUser) {
+//         localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+//     }
+// };
 
 
 

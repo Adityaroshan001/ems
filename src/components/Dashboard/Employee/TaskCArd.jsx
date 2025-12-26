@@ -12,7 +12,7 @@ const TaskCArd = ({ task, onStatusChange }) => {
     const handleSubmit = () => {
         const ask = confirm("Are you sure that the Task is completed?")
         if (ask && task.status === "pending") {
-            onStatusChange(task.id, "in_review   ")
+            onStatusChange(task.id, "in_review")
         }
     }
 
@@ -37,9 +37,7 @@ const TaskCArd = ({ task, onStatusChange }) => {
 
             {task.status === "pending" && (
                 <button
-                    // onClick={() => onSubmit(task)}
                     className="mt-3 px-3 py-1 bg-blue-600 rounded"
-                    // onClick={() => handleSubmit(task.status)}
                     onClick={handleSubmit}
                 >
                     Submit Task

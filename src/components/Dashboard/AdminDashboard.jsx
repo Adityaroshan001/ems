@@ -34,7 +34,7 @@ const AdminDashboard = (props) => {
                     {activePage === "dashboard" && (
                         <Stats employeesData={employeesData} />
                     )}
-                    {activePage === "employees" && (<EmployeeTable employeesData={employeesData} setEmployeesData={setEmployeesData} /> )}
+                    {activePage === "employees" && (<EmployeeTable employeesData={employeesData} setEmployeesData={setEmployeesData} />)}
                     {activePage === "create-task" && ("Create Task Content")}
                     {activePage === "reports" && ("Reports Content")}
                 </main>

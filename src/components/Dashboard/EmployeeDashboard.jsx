@@ -11,26 +11,37 @@ const EmployeeDashboard = (props) => {
     const { employeesData, setEmployeesData } = useContext(AuthContext);
     const [task, setTask] = useState(props.data.tasks);
 
-
+    //  this function triggers when user submit any task
     const handleStatusChange = (taskId, newStatus) => {
+        // 1️ Update tasks locally
         const updatedTasks = task.map(t =>
             t.id === taskId ? { ...t, status: newStatus } : t
         );
-        setTask(updatedTasks)
+        setTask(updatedTasks);
 
-
-        // update the tasks in employee array
+        // 2️ Update employee inside employees array
         const updatedEmployees = employeesData.map(emp =>
-            emp.id == props.data.id ? { ...emp, tasks: updatedTasks } : emp
+            emp.id === props.data.id
+                ? { ...emp, tasks: updatedTasks }
+                : emp
         );
 
-        setEmployeesData(updatedEmployees)
+        // 3️ Update React Context (THIS IS CRUCIAL)
+        setEmployeesData(updatedEmployees);
 
-        // persist to the local storage
-        const localData = getLocalStorage();
-        setLocalStorage(localData.admin, updatedEmployees)
+        // 4️ Persist to localStorage
+        localStorage.setItem("employees", JSON.stringify(updatedEmployees));
 
-    }
+        // 5️ Sync loggedInUser
+        const loggedUser = JSON.parse(localStorage.getItem("loggedInUser"));
+        if (loggedUser?.role === "employee") {
+            loggedUser.data = updatedEmployees.find(
+                emp => emp.id === props.data.id
+            );
+            localStorage.setItem("loggedInUser", JSON.stringify(loggedUser));
+        }
+    };
+
 
 
     return (
@@ -39,8 +50,6 @@ const EmployeeDashboard = (props) => {
 
             <div className='p-6 space-y-6'>
                 <EmployeeDetails employee={props.data} />
-                {/* <TasksStats tasks={props.data.tasks} />
-                <TaskList tasks={props.data.tasks} onStatusChange={handleStatusChange} /> */}
                 <TasksStats tasks={task} />
                 <TaskList tasks={task} onStatusChange={handleStatusChange} />
 
@@ -50,4 +59,6 @@ const EmployeeDashboard = (props) => {
 }
 
 export default EmployeeDashboard
+
+
 

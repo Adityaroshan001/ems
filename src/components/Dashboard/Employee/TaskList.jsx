@@ -12,13 +12,11 @@ const TaskList = ({ tasks, onStatusChange }) => {
             ) : (
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                     {tasks.map(task => (
-                        // console.log(task
-                        // <div>task</div>
                         <TaskCArd
-                         key={task.id}
-                          task={task} 
-                          onStatusChange={onStatusChange}
-                          />
+                            key={task.id}
+                            task={task}
+                            onStatusChange={onStatusChange}
+                        />
 
                     ))}
 
