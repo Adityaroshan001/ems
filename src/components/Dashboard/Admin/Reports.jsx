@@ -4,8 +4,6 @@ import { AuthContext } from '../../../context/AuthContext'
 const Reports = () => {
     const { employeesData, setEmployeesData } = useContext(AuthContext);
     const [reviewEmps, setReviewEmps] = useState([]);
-    // console.log(employeesData)
-    // console.log("inside reviews page")
 
     useEffect(() => {
         if (!employeesData) return
@@ -22,8 +20,6 @@ const Reports = () => {
                 }
             })
         });
-
-        console.log(reviewTasks)
     }, [employeesData])
 
 

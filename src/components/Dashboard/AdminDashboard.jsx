@@ -10,12 +10,10 @@ import CreateTask from './Admin/create-task/CreateTask'
 
 const AdminDashboard = (props) => {
     const { employeesData, adminData, setEmployeesData } = useContext(AuthContext);
-    console.log("Admin Dashboard")
 
     const [activePage, setActivePage] = useState("dashboard");
 
     useEffect(() => {
-        console.log("Navigate to:", activePage)
     }, [activePage])
 
 

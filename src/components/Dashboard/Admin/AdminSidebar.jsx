@@ -18,7 +18,6 @@ const AdminSidebar = ({ activePage, setActivePage, logout }) => {
                         key={item.key}
                         className={`px-4 py-2 rounded cursor-pointer
                             ${activePage === item.key ? "bg-blue-600 font-semibold" : "hover:bg-gray-800"}`}
-                        // onClick={() => console.log(`Navigate to ${item.key}`)}
                         onClick={() => {
                             setActivePage(item.key)
                         }}

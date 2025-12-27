@@ -19,8 +19,7 @@ const App = () => {
   }, []);
 
   const handleLogin = (email, password) => {
-    console.log("Handle login function triggered");
-
+    
     // Check admin credentials
     const adminUser = adminData.find(
       (u) => u.email === email && u.password === password

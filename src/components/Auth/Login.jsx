@@ -25,7 +25,6 @@ const Login = ({ handleLogin }) => {
                         required
                         value={email}
                         onChange={(e) => {
-                            console.log(e.target.value)
                             setEmail(e.target.value);
                         }}
 
