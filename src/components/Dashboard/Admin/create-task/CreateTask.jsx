@@ -53,6 +53,8 @@ const CreateTask = () => {
             }
         })
         setEmployeesData(updatedEmployees)
+        // console.log(updatedEmployees)
+        // localStorage.setItem('employeesData', JSON.stringify(updatedEmployees));
 
         setTitle('');
         setDescription('');

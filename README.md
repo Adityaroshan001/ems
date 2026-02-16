@@ -101,3 +101,34 @@ _Add screenshots or GIFs here to make your README more engaging._ -->
 ## 🔹 License
 
 MIT License – feel free to use and modify.
+
+
+
+Excited to share my latest project.
+
+
+
+I just completed my Employee Management System project.
+
+This project helped me practice state management, role-based access, and real-world workflows.
+
+
+
+In this project:
+
+1. Admin can view employee details, assign tasks, and review submissions.
+
+2. Employees can track tasks, submit, and resubmit if needed.
+
+3. Complete task workflow: Pending → Review → Approved/Rejected.
+
+4. Fully built with React, Context API, and responsive UI.
+
+
+
+Check it out here:  https://github.com/Abhishek-mehata/ems.git
+
+
+
+#ReactJS #WebDevelopment #FrontendDevelopment #ProjectShowcase #PortfolioProject #StudentDeveloper #JavaScript #UIDesign #ResponsiveDesign #SoftwareEngineering #LearningByBuilding #FullStackDevelopment #EmployeeManagementSystem
+
